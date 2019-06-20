@@ -5,6 +5,7 @@ import kr.or.ddit.board.dao.IboardDao;
 public class BoardService implements IboardService {
 	// property or field
 	private IboardDao boardDao;
+	private String name;
 	
 	// 인자를 받는 기본 생성자를 만들었다면 기본 생성자도 만들어야 오류가 안남
 	public BoardService() {
@@ -27,6 +28,15 @@ public class BoardService implements IboardService {
 		this.boardDao = boardDao;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 	
 	
 }
