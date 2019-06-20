@@ -17,7 +17,13 @@ public class SpringPlaceHolderTest {
 	@Resource(name = "dbInfo")
 	private DbInfo dbInfo;
 	
-	
+	/**
+	 * 
+	* Method : DbInfoTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 :
+	 */
 	@Test
 	public void DbInfoTest() {
 		

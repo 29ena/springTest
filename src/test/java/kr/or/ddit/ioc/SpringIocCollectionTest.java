@@ -19,7 +19,13 @@ public class SpringIocCollectionTest {
 	@Resource(name = "collectionBean")
 	private IocCollection iocCollection;
 	
-	
+	/**
+	 * 
+	* Method : iocCollectionTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 :
+	 */
 	@Test
 	public void iocCollectionTest() {
 		/***Given***/

@@ -17,7 +17,13 @@ public class SpringLifeCycleTest {
 	@Resource(name = "dbInfo")
 	private DbInfo dbInfo;
 	
-	
+	/**
+	 * 
+	* Method : lifeCycleTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 :
+	 */
 	@Test
 	public void lifeCycleTest() {
 		

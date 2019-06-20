@@ -24,6 +24,14 @@ public class ApplicationIocConfig {
 //	<property name="boardDao" ref="boardDao"></property>
 //	</bean>
 	
+	/**
+	 * 
+	* Method : boardService
+	* 작성자 : PC20
+	* 변경이력 :
+	* @return
+	* Method 설명 :
+	 */
 	@Bean
 	public BoardService boardService() {
 		BoardService boardService = new BoardService();
