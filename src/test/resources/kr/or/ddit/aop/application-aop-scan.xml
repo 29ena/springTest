@@ -14,7 +14,8 @@
 	
 	<aop:aspectj-autoproxy/>
 	
-	<!--  -->
+	<!-- component-scan하면 불필요하다. scan방식이 아닐 경우에 설정 필요 -->
 	<context:annotation-config />
+	
 
 </beans>
