@@ -37,4 +37,15 @@ public interface IuserDao {
 	* Method 설명 : 회원 삭제
 	 */
 	int deleteUser(String userId);
+	
+	/**
+	 * 
+	* Method : getuser
+	* 작성자 : PC20
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 정보 조회
+	 */
+	UserVo getuser(String userId);
 }

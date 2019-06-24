@@ -11,10 +11,10 @@
 	<bean id="loggingAspect" class="kr.or.ddit.aop.LoggingAspect" />
 
 	<!-- 공통의 관심사항 : profilingAspect - service 클래스의 메소드들이 실행될 때 메소드의 실행 시간을 구한다 -->
-	<bean id="profilingAspect" class="kr.or.ddit.aop.ProfilingAspect"></bean>
+	<bean id="profilingAspect" class="kr.or.ddit.aop.ProfilingAspect"/>
 
 	<!-- @Controller, @Service, @Repository, @Component 4가지 annotation이 붙은 클래스를 스프링 빈으로 등록 -->
-	<context:component-scan	base-package="kr.or.ddit"/>
+	<context:component-scan	base-package="kr.or.ddit.board"/>
 	
 	<context:annotation-config />
 

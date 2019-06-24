@@ -4,6 +4,11 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
-	<context:component-scan base-package="kr.or.ddit"/>
+	
+	<!-- @Controller, @Service, @Repository, @Component -->
+	<context:component-scan base-package="kr.or.ddit" use-default-filters="false"> <!-- false로 설정하였기에 4가지 다 미포함 상태 include-filter로 설정 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	
 </beans>
