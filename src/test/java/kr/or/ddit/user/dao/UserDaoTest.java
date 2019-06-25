@@ -11,12 +11,17 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.testenv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVo;
 
 public class UserDaoTest extends LogicTestEnv{
 
+	private static final Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
+	
 	@Resource(name = "userDao")
 	private IuserDao userDao;
 	
@@ -88,5 +93,64 @@ public class UserDaoTest extends LogicTestEnv{
 		assertEquals("브라운", userVo.getName());
 		assertEquals("곰", userVo.getAlias());
 	};
-
+	
+	/**
+	 * 
+	* Method : updateUserTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 : 사용자 정보 수정 테스트
+	 * @throws ParseException 
+	 */
+	@Test
+	public void updateUserTest() throws ParseException {
+		/***Given***/
+		logger.debug("updateCnt()");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserVo userVo = new UserVo("뽀길스222", "user38", "뽀길", "1234", "대전광역시", "영민빌딩 204호", "20424", sdf.parse("2019-04-18"));
+		logger.debug("userVo : {}", userVo);
+		/***When***/
+		int updateCnt = userDao.updateUser(userVo);
+		logger.debug("updateCnt : {}", updateCnt);
+		/***Then***/
+		assertEquals(1, updateCnt);
+	}
+	
+	/**
+	 * 
+	* Method : userCntTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 : 사용자 전체수 조회
+	 */
+	@Test
+	public void usersCntTest() {
+		/***Given***/
+		
+		/***When***/
+		int usersCnt = userDao.usersCnt();
+		/***Then***/
+		assertEquals(108, usersCnt);
+	}
+	
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 */
+	@Test
+	public void userPagingListTest() {
+		/***Given***/
+		PageVo pageVo = new PageVo(1, 10);
+		/***When***/
+		List<UserVo> userList = userDao.userPagingList(pageVo);
+		/***Then***/
+		logger.debug("userList : {}", userList);
+		assertEquals(10, userList.size());
+		
+	}
+	
+	
 }

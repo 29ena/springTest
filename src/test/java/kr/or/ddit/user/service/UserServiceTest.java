@@ -7,17 +7,23 @@ import static org.junit.Assert.assertTrue;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.testenv.LogicTestEnv;
 import kr.or.ddit.user.model.UserVo;
 
 
 public class UserServiceTest extends LogicTestEnv {
 
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceTest.class);
+	
 	@Resource(name = "userService")
 	private IuserService userService;
 	
@@ -82,7 +88,56 @@ public class UserServiceTest extends LogicTestEnv {
 		/***Then***/
 		assertEquals("브라운", userVo.getName());
 		assertEquals("곰", userVo.getAlias());
-	};
+	}
+	
+	/**
+	 * 
+	* Method : updateUserTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* @throws ParseException
+	* Method 설명 : 사용자 정보 수정 테스트
+	 */
+	@Test
+	public void updateUserTest() throws ParseException{
+		
+		/***Given***/
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserVo userVo = new UserVo("호길스","user38" ,"뽀길", "4321", "대전 광역시 중구", "중구청 옆 영민빌딩", "32402", sdf.parse("2019-05-28"));
+		logger.debug("userVo : {}",userVo);
+		/***When***/
+		int updateCnt = userService.updateUser(userVo);
+		logger.debug("updateCnt : {}",updateCnt);
+		/***Then***/
+		assertEquals(1, updateCnt);
+	}
+	
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC20
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 */
+	@Test
+	public void userPagingListTest(){
+		
+		/***Given***/
+		PageVo pageVo = new PageVo(1, 10);
+
+		/***When***/
+		Map<String, Object> resultMap = userService.userPagingList(pageVo);
+		List<UserVo> userList = (List<UserVo>) resultMap.get("userList");
+		int paginationSize = (Integer)resultMap.get("paginationSize");
+		logger.debug("paginationSize : {}",paginationSize);
+		/***Then***/
+		// pagingList assert
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
+		
+		// usersCnt assert
+		assertEquals(11, paginationSize);
+	}
 	
 	
 

@@ -11,6 +11,7 @@
   </welcome-file-list>
   
   <!-- needed for ContextLoaderListener -->
+  <!-- logic관련 spring bean ioc -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -46,4 +47,6 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern> <!-- default servlet -->
 	</servlet-mapping>
+	
+	
 </web-app>
