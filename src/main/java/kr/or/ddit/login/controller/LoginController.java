@@ -57,7 +57,6 @@ public class LoginController {
 			rememberMeCookie(userId, rememberme, response);
 			
 			session.setAttribute("USER_INFO", userVo);
-			
 			return "main";	// main으로 forward하는 과정
 		}
 		else
