@@ -5,7 +5,13 @@
 <mapper namespace="lprod">
 
   
-  <!-- 사용자 페이지 리스트 조회 -->
+  <!-- 전체조회 -->
+  <select id="lprodList" resultType="lprodVo">
+    select * 
+    from lprod
+  </select>
+  
+  <!-- lprod 페이지 리스트 조회 -->
   <!-- pageVo int page, int pageSize -->
   <select id="lprodPagingList" parameterType="pageVo" resultType="lprodVo">
 	<![CDATA[
@@ -20,7 +26,7 @@
 	]]>
   </select>
   
-  <!-- 사용자 전체수 조회 -->
+  <!-- lprod 전체수 조회 -->
     <select id="lprodsCnt" resultType="int">
     	select count(*)
 		from lprod

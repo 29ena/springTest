@@ -1,9 +1,15 @@
 package kr.or.ddit.testenv;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -12,7 +18,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
-import kr.or.ddit.testenv.ControllerTestEnv;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,9 +33,17 @@ public class ControllerTestEnv {
 	protected WebApplicationContext ctx;	// spring container 
 	protected MockMvc mockMvc;			// dispatcher servlet 
 	
+	@Resource(name = "datasource")
+	private DataSource datasource;
+	
 	@Before
 	public void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+		ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
+		rdp.setContinueOnError(false);  // 에러 발생시 계속 할지 정하는 메서드
+		rdp.addScript(new ClassPathResource("kr/or/ddit/testenv/dbInit.sql"));
+		
+		DatabasePopulatorUtils.execute(rdp, datasource);
 	}
 	
 	@Ignore

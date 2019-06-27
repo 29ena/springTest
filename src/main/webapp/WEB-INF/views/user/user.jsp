@@ -53,7 +53,7 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자상세</h2>
 						
-						<form action="${cp }/userModify" id="frm">
+						<form action="${cp }/user/modify" id="frm">
 							<input type="hidden" id="userId" name="userId"/>
 						</form>
 
@@ -62,7 +62,7 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">${path }</label>
 								<div class="col-sm-10">
-									<img id="img" src="${cp }/profile?userId=${vo.userId}"/>
+									<img id="img" src="${cp }/user/profile?userId=${userVo.userId}"/>
 								</div>
 							</div>
 							
@@ -70,7 +70,7 @@
 								<label for="userNm" class="col-sm-2 control-label">사용자
 									아이디</label>
 								<div class="col-sm-10">
-									<label id="userId2" class="control-label">${vo.userId }</label>
+									<label id="userId2" class="control-label">${userVo.userId }</label>
 									<!-- <input type="text" class="form-control" id="userId"
 										name="userId" placeholder="사용자 아이디"> -->
 								</div>
@@ -80,41 +80,41 @@
 								<label for="userNm" class="col-sm-2 control-label">사용자
 									이름</label>
 								<div class="col-sm-10">
-									<label class="control-label">${vo.name }</label>
+									<label class="control-label">${userVo.name }</label>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
-									<label class="control-label">${vo.alias }</label>
+									<label class="control-label">${userVo.alias }</label>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-10">
-									<label class="control-label">${vo.addr1 }</label>
+									<label class="control-label">${userVo.addr1 }</label>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
-									<label class="control-label">${vo.addr2 }</label>
+									<label class="control-label">${userVo.addr2 }</label>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
-									<label class="control-label">${vo.zipcd }</label>
+									<label class="control-label">${userVo.zipcd }</label>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
-									<label class="control-label"><fmt:formatDate value="${vo.birth }" pattern="yyyy-MM-dd"/></label>
+									<label class="control-label"><fmt:formatDate value="${userVo.birth }" pattern="yyyy-MM-dd"/></label>
 								</div>
 							</div>
 

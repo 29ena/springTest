@@ -56,11 +56,14 @@
 	update  users
 	    set name = #{name}
 	     , alias = #{alias}
-	     , pass = #{pass}
 	     , addr1 = #{addr1}
 	     , addr2 = #{addr2}
 	     , zipcd = #{zipcd}
 	     , birth = #{birth}
+	     <if test ="path != null">
+	     , path = #{path}
+	     , filename = #{filename}
+	     </if>
 	where userid = #{userId}
 	</update>
 	 

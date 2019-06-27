@@ -14,7 +14,7 @@ public class PageVo {
 	}
 
 	public int getPage() {
-		return page == 0 ? 1 :page;
+		return page == 0 ? 1 : page;
 	}
 
 	public void setPage(int page) {
@@ -33,4 +33,30 @@ public class PageVo {
 	public String toString() {
 		return "PageVo [page=" + page + ", pageSize=" + pageSize + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + getPage();
+		result = prime * result + getPageSize();
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PageVo other = (PageVo) obj;
+		if (getPage() != other.getPage())
+			return false;
+		if (getPageSize() != other.getPageSize())
+			return false;
+		return true;
+	}
+
 }

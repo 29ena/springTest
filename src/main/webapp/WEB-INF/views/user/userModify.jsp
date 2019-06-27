@@ -88,7 +88,7 @@
 						
 							
 						
-						<form id="frm" class="form-horizontal" role="form" action="${cp }/userModify" method="post"  enctype="multipart/form-data">
+						<form id="frm" class="form-horizontal" role="form" action="${cp }/user/modify" method="post"  enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자사진</label>
 								<div class="col-sm-10">
@@ -99,8 +99,8 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자아이디</label>
 								<div class="col-sm-10">
-									<label name="userId" placeholder="사용자 아이디">${vo.userId}</label>
-									<input id="userId" type="hidden" id="userId" name="userId" value="${vo.userId}"/>
+									<label name="userId" placeholder="사용자 아이디">${userVo.userId}</label>
+									<input id="userId" type="hidden" id="userId" name="userId" value="${userVo.userId}"/>
 								</div>
 							</div>
 
@@ -109,14 +109,14 @@
 									이름</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name"
-										name="name" placeholder="사용자 이름" value="${vo.name }">
+										name="name" placeholder="사용자 이름" value="${userVo.name }">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="alias"
-										name="alias" placeholder="사용자 별명" value="${vo.alias }">
+										name="alias" placeholder="사용자 별명" value="${userVo.alias }">
 								</div>
 							</div>
 							
@@ -124,7 +124,7 @@
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="addr1"
-										name="addr1" placeholder="사용자 주소" value="${vo.addr1 }" readonly>
+										name="addr1" placeholder="사용자 주소" value="${userVo.addr1 }" readonly>
 								</div>
 								<div class="col-sm-2">
 									<button id="addrSearchBtn" type="button" class="btn btn-default pull-right">주소검색</button>
@@ -135,7 +135,7 @@
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="addr2"
-										name="addr2" placeholder="상세주소" value="${vo.addr2 }">
+										name="addr2" placeholder="상세주소" value="${userVo.addr2 }">
 								</div>
 							</div>
 							
@@ -143,7 +143,7 @@
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="zipcd"
-										name="zipcd" placeholder="사용자 우편번호" value="${vo.zipcd }" readonly>
+										name="zipcd" placeholder="사용자 우편번호" value="${userVo.zipcd }" readonly>
 								</div>
 							</div>
 							
@@ -151,17 +151,17 @@
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
 									<input type="date" class="form-control" id="birth"
-										name="birth" placeholder="사용자 생일" value="${birth }">
+										name="birth" placeholder="사용자 생일" value="${userVo.birth }">
 								</div>
 							</div>
 							
-							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">비밀번호</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass"
-										name="pass" placeholder="사용자 비번" value="${vo.pass }">
-								</div>
-							</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="userNm" class="col-sm-2 control-label">비밀번호</label> -->
+<!-- 								<div class="col-sm-10"> -->
+<!-- 									<input type="password" class="form-control" id="pass" -->
+<%-- 										name="pass" placeholder="사용자 비번" value="${vo.pass }"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
