@@ -3,6 +3,8 @@ package kr.or.ddit.main.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.main.model.MainVo;
 import kr.or.ddit.user.model.UserVo;
 /*
  servlet
@@ -147,6 +151,41 @@ public class MainController {
 	@RequestMapping("/main/header")
 	public String header(@RequestHeader(name = "Accept"/* , required = false */)String accept) {	// required를 false로 하여 헤더정보 없이도 실행가능하다.
 		logger.debug("accept : {}", accept);
+		return "main";
+	}
+	
+	@RequestMapping("/main/view")
+	public String view() {
+		
+		return "view";
+	}
+	
+	// List<>타입의 경우 @RequestParam 적용
+	@RequestMapping("/main/process")
+	public String process(HttpServletRequest request, String[]  userId
+							, @RequestParam("userId")List<String> userIdList
+							, @RequestParam("name")List<String> name
+							, MainVo mainVo) {
+		
+		String[] userIdArr =request.getParameterValues("userId");
+		
+		String userIdParameter = request.getParameter("userId");
+		logger.debug("userIdParameter : {}", userIdParameter);
+		
+		logger.debug("request.getParameterValues(\"userId\")");
+		for(String u : userIdArr)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("String[] userId");
+		for(String u : userId)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("userIdList");
+		for(String u : userIdList)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("mainVo : {}", mainVo);
+		
 		return "main";
 	}
 	

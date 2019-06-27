@@ -29,6 +29,9 @@
 </style>
 <script>
 	$(document).ready(function(){
+		<c:if test="${not empty msg}">
+			alert("${msg}");
+		</c:if>
 		$("#modifyBtn").on("click", function(){
 			var userId = $("#userId2").text();
 			$("#userId").val(userId);
