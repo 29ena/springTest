@@ -72,9 +72,8 @@ public class LprodDaoTest extends LogicTestEnv{
 	@Test
 	public void lprodPagingListTest() {
 		/***Given***/
-		PageVo pageVo = new PageVo(1, 10);
 		/***When***/
-		List<LprodVo> lprodList = lprodDao.lprodPagingList(pageVo);
+		List<LprodVo> lprodList = lprodDao.lprodList();
 		/***Then***/
 		assertEquals(9, lprodList.size());
 		
