@@ -53,6 +53,6 @@ public class LprodDao implements IlprodDao {
 	 */
 	@Override
 	public List<LprodVo> lprodList() {
-		return sqlSession.selectList("lprod.lprodPagingList");
+		return sqlSession.selectList("lprod.lprodList");
 	}
 }
