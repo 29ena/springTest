@@ -70,7 +70,7 @@ public class ProdDaoTest extends LogicTestEnv {
 		/***When***/
 		List<ProdVo> prodList = prodDao.prodPagingList(pageVo);
 		/***Then***/
-		assertEquals(74, prodList.size());
+		assertEquals(10, prodList.size());
 	}
 	
 

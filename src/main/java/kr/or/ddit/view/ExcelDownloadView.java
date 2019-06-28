@@ -32,8 +32,8 @@ public class ExcelDownloadView implements View{
 		
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/vnd.ms-excel");
-		
-		response.setHeader("content-Disposition", "attachment; filename="+request.getParameter("filename")+".xlsx");
+		String fileName = request.getParameter("filename");
+		response.setHeader("content-Disposition", "attachment; filename="+ fileName+".xlsx");
 		
 		List<String> header = (List<String>) model.get("header");	// data 헤더 정보(userId, name, alias...)
 		List<UserVo> userList = (List<UserVo>) model.get("data");	// data

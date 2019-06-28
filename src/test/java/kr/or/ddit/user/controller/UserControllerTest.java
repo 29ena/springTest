@@ -71,7 +71,7 @@ public class UserControllerTest extends ControllerTestEnv{
 		PageVo pageVo = (PageVo)mav.getModelMap().get("pageVo");
 		/***Then***/
 		// viewName
-		assertEquals("user/userPagingList", viewName);
+		assertEquals("tiles.userPagingList", viewName);
 		
 		// 속성 userList, paginationSize, pageVo
 		assertEquals(10, userList.size());
@@ -104,7 +104,7 @@ public class UserControllerTest extends ControllerTestEnv{
 		PageVo pageVo = (PageVo)mav.getModelMap().get("pageVo");
 		/***Then***/
 		// viewName
-		assertEquals("user/userPagingList", viewName);
+		assertEquals("tiles.userPagingList", viewName);
 		
 		// 속성 userList, paginationSize, pageVo
 		assertEquals(10, userList.size());
@@ -276,7 +276,7 @@ public class UserControllerTest extends ControllerTestEnv{
 				.param("addr2", "영민빌딩 2층 204호")
 				.param("zipcd", "34940")
 				.param("birth", "2019-05-31"))
-		.andExpect(view().name("redirect:/user/user?userId=brown"));
+		.andExpect(view().name("redirect:/user/user"));
 		
 	}
 }

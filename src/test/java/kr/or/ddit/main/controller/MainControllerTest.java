@@ -38,7 +38,7 @@ public class MainControllerTest extends ControllerTestEnv{
 		String viewName = mav.getViewName();
 		String userId = (String)mav.getModel().get("mainUserId");
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertEquals("brown", userId);
 		assertNotNull(mav.getModel().get("rangers"));
 		assertNotNull(mav.getModel().get("userVo"));
@@ -49,7 +49,7 @@ public class MainControllerTest extends ControllerTestEnv{
 		
 		// gwt문과 어울리진 않는다.
 		mockMvc.perform(get("/main")).andExpect(status().isOk()) 
-									.andExpect(view().name("main"))
+									.andExpect(view().name("tiles.main"))
 									.andExpect(model().attribute("mainUserId", "brown"))
 									.andExpect(model().attributeExists("rangers"))
 									.andExpect(model().attributeExists("userVo"));
