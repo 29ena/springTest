@@ -45,6 +45,7 @@ public class FileController {
 		String ext = PartUtil.getExt(file.getOriginalFilename());
 		String fileName = UUID.randomUUID().toString();
 		
+		
 		File uploadfile = new File(path + File.separator  + fileName + ext);
 		try {
 			file.transferTo(uploadfile);
