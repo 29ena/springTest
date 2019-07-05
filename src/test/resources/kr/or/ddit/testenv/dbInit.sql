@@ -1,6 +1,9 @@
 select * from not_exists_in_prd_db;
 
 --users 테이블 초기화
+
+
+
 delete users;
 
 Insert into PC20_TEST.USERS (USERID,NAME,ALIAS,PASS,ADDR1,ADDR2,ZIPCD,BIRTH,PATH,FILENAME) values ('user38','사용자38','사용자별명38','4c1dda29fc915e46b7618d4bc97b89c8d095f8c7843c945f6608cff7c6efb',null,null,null,null,null,null);

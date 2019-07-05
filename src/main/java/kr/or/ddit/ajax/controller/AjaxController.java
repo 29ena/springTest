@@ -86,7 +86,7 @@ public class AjaxController {
 					consumes = {"application/json"},
 					
 					//produces : 메소드가 생성 가능한 타입(accept 헤더 확인)
-					produces = {"application/json","application/json"})			
+					produces = {"application/json","application/xml"})			
 	@ResponseBody
 	public UserVo requestBody(@RequestBody UserVo userVo) {
 		logger.debug("userVo : {}", userVo);
