@@ -92,5 +92,5 @@
 		<url-pattern>/</url-pattern> <!-- default servlet -->
 	</servlet-mapping>
 	
-	
+	<!-- 브랜치 테스트용 커밋 -->
 </web-app>
